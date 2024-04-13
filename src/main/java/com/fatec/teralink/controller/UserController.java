@@ -57,4 +57,10 @@ public class UserController {
         return userService.updateUser(id, data);
     }
 
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
+    @GetMapping("/{id}")
+    public ResponseEntity<UserResponseDTO> getUserById(@PathVariable Long id) {
+        return userService.getUserById(id);
+    }
+
 }

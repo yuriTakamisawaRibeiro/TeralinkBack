@@ -21,4 +21,6 @@ public interface IUserService {
 
     ResponseEntity<UserUpdateDTOReturn> updateUser(Long id, UserUpdateDTO data);
 
+    ResponseEntity<UserResponseDTO> getUserById(Long id);
+
 }

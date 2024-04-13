@@ -63,4 +63,16 @@ public class UserService implements IUserService {
             return ResponseEntity.notFound().build();
         }
     }
+
+    public ResponseEntity<UserResponseDTO> getUserById(Long id) {
+        Optional<User> optionalUser = userRepository.findById(id);
+
+        if (optionalUser.isPresent()) {
+            User user = optionalUser.get();
+            return ResponseEntity.ok(new UserResponseDTO(user));
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 }
+
