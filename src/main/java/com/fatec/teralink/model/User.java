@@ -34,8 +34,8 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name= "name", nullable = false)
-    private String name;
+    @Column(name= "username", nullable = false)
+    private String username;
 
     @Email
     @Column(name= "email", nullable = false)
@@ -51,7 +51,7 @@ public class User {
 
     // validador de dados chamado "data"
     public User(@Valid UserRequestDTO data) {
-        this.name = data.name();
+        this.username = data.username();
         this.email = data.email();
         this.cpf = data.cpf();
         this.password = data.password();
@@ -60,7 +60,7 @@ public class User {
 
     public void updateUser(UserUpdateDTO data) {
         if (data.name() != null) {
-            this.name = data.name();
+            this.username = data.name();
         }
         if (data.email() != null) {
             this.email = data.email();
