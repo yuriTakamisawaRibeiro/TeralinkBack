@@ -12,5 +12,7 @@ import com.fatec.teralink.model.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long>{
     @SuppressWarnings("null")
-    Optional<User> findById(Long id);    
+    Optional<User> findById(Long id);
+
+    User findByEmail(String email);    
 } 
