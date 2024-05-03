@@ -3,12 +3,7 @@ package com.fatec.teralink.service;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Service;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.fatec.teralink.dto.UserDTO.UserRequestDTO;
@@ -80,8 +75,7 @@ public class UserService implements IUserService {
         }
     }
 
-    @Autowired
-    private BCryptPasswordEncoder bCryptPasswordEncoder;
+   
 
     public User findUserByEmail(String email) {
         return userRepository.findByEmail(email);
@@ -89,7 +83,7 @@ public class UserService implements IUserService {
 
     public boolean checkUserCredentials(String email, String password) {
         User user = findUserByEmail(email);
-        if(user != null && bCryptPasswordEncoder.matches(password, user.getPassword())) {
+        if(user != null && password.matches(password)) {
                 return true;
             }
         
