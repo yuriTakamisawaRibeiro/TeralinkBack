@@ -7,7 +7,7 @@ public record UserUpdateDTOReturn(Long id, String name, String email, String pas
     public UserUpdateDTOReturn(User user) {
         this(
                 user.getId(),
-                user.getUsername(),
+                user.getName(),
                 user.getEmail(),
                 user.getPassword()
             );

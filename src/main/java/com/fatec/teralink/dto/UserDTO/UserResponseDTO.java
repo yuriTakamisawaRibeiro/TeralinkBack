@@ -12,7 +12,7 @@ public record UserResponseDTO(Long id, String name, String email, String cpf, St
 
         this(
             user.getId(),
-            user.getUsername(),
+            user.getName(),
             user.getEmail(),
             user.getCpf(),
             user.getPassword()
